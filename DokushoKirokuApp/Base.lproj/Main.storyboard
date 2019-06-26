@@ -217,8 +217,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srh-uo-rvm">
                                 <rect key="frame" x="10" y="244" width="300" height="30"/>
                                 <state key="normal" title="本の画像をライブラリから選択"/>
+                                <connections>
+                                    <action selector="handleLibraryButton:" destination="CD8-fx-rex" eventType="touchUpInside" id="9Ok-gp-woD"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uPn-JM-5QG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uPn-JM-5QG">
                                 <rect key="frame" x="100" y="84" width="120" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="afC-5l-bdO"/>
@@ -263,6 +266,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D1T-H6-zVM"/>
                     </view>
+                    <connections>
+                        <outlet property="authorNameTextField" destination="hCf-xg-5mf" id="O8X-PR-wla"/>
+                        <outlet property="bookImageView" destination="uPn-JM-5QG" id="jCK-RB-Xup"/>
+                        <outlet property="titleTextField" destination="H7n-fa-RcT" id="YEC-hr-d5y"/>
+                        <outlet property="totalPagesTextField" destination="3xy-jM-Lti" id="z98-v0-u8q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9F-tR-rXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
