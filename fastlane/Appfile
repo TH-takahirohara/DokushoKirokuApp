@@ -1,0 +1,6 @@
+# app_identifier("[[APP_IDENTIFIER]]") # The bundle identifier of your app
+apple_id("h07_k88r7m11@ezweb.ne.jp") # Your Apple email address
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

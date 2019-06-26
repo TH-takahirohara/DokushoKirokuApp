@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='DokushoKirokuAppTests.xctest' tests='3' failures='0'>
+  <testsuite name='DokushoKirokuAppUITests.DokushoKirokuAppUITests' tests='1' failures='0'>
+    <testcase classname='DokushoKirokuAppUITests.DokushoKirokuAppUITests' name='testExample' time='9.781'/>
+  </testsuite>
+  <testsuite name='DokushoKirokuAppTests.DokushoKirokuAppTests' tests='2' failures='0'>
+    <testcase classname='DokushoKirokuAppTests.DokushoKirokuAppTests' name='testExample' time='0.003'/>
+    <testcase classname='DokushoKirokuAppTests.DokushoKirokuAppTests' name='testPerformanceExample' time='0.523'/>
+  </testsuite>
+</testsuites>

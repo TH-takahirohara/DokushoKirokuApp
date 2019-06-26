@@ -1,0 +1,5 @@
+Pods/*
+DokushoKirokuApp.xcworkspace
+GoogleService-Info.plist
+.bundle
+vendor/*
