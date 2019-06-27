@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class InputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -38,6 +39,31 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
         picker.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func addBookDataButton(_ sender: Any) {
+        if let title = titleTextField.text, let author = authorNameTextField.text, let totalpages = totalPagesTextField.text {
+            if title.isEmpty || author.isEmpty || totalpages.isEmpty {
+                SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+                return
+            }
+            
+            let intTotalPages: Int = Int(totalpages)!
+            if intTotalPages == 0 {
+                SVProgressHUD.showError(withStatus: "総ページ数は0より大きい値として下さい")
+                return
+            }
+            
+            let imageData = bookImageView.image!.jpegData(compressionQuality: 0.5)
+            let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+            let currentUserId = Auth.auth().currentUser?.uid
+            
+            let bookRef = Database.database().reference().child("user/" + currentUserId! + "/book")
+            let bookData = ["title": title, "author": author, "total_pages": totalpages, "last_page": "0", "image": imageString]
+            bookRef.childByAutoId().setValue(bookData)
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +71,9 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
         bookImageView.image = initialImage
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation
