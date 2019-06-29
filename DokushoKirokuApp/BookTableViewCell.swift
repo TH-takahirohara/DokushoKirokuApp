@@ -31,9 +31,9 @@ class BookTableViewCell: UITableViewCell {
         self.titleLabel.text = bookData.title
         self.authorLabel.text = bookData.author
         
-        let totalPages: Int = Int(bookData.totalPages)!
-        let lastPage: Int = Int(bookData.lastPage)!
-        let rate: Double = (floor(Double(lastPage / totalPages * 10)) / 10) as! Double
+        let totalPages: Double = Double(Int(bookData.totalPages)!)
+        let lastPage: Double = Double(Int(bookData.lastPage)!)
+        let rate: Double = (floor(lastPage / totalPages * 100) / 100 * 100)
         let rateStr: String = String("\(rate)")
         self.progressRateLabel.text = rateStr + "%"
     }

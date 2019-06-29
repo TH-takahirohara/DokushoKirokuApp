@@ -52,6 +52,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self.tableView.reloadData()
                 })
                 
+                booksRef.observe(.childChanged, with: {snapshot in
+                    print("DEBUG_PRINT: .childChangedイベントが発生しました。")
+                    
+                    let bookData = BookData(snapshot: snapshot)
+                    
+                    var index: Int = 0
+                    for book in self.bookArray {
+                        if book.id == bookData.id {
+                            index = self.bookArray.firstIndex(of: book)!
+                            break
+                        }
+                    }
+                    
+                    self.bookArray.remove(at: index)
+                    
+                    self.bookArray.insert(bookData, at: index)
+                    
+                    self.tableView.reloadData()
+                })
+                
                 observing = true
             }
         } else {
@@ -80,6 +100,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "cellSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "cellSegue" {
+            let cellViewController: CellViewController = segue.destination as! CellViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            cellViewController.bookData = bookArray[indexPath!.row]
+        }
     }
 
     /*

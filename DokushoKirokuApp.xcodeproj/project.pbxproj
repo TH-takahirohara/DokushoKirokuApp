@@ -24,6 +24,9 @@
 		18E5759B22C4EBCE00A870ED /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5759A22C4EBCE00A870ED /* BookData.swift */; };
 		18E5759E22C4EF1400A870ED /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5759C22C4EF1400A870ED /* BookTableViewCell.swift */; };
 		18E5759F22C4EF1400A870ED /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E5759D22C4EF1400A870ED /* BookTableViewCell.xib */; };
+		18E575A222C7AE5F00A870ED /* DailyLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E575A022C7AE5F00A870ED /* DailyLogTableViewCell.swift */; };
+		18E575A322C7AE5F00A870ED /* DailyLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E575A122C7AE5F00A870ED /* DailyLogTableViewCell.xib */; };
+		18E575A522C7B12300A870ED /* DailyLogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E575A422C7B12300A870ED /* DailyLogData.swift */; };
 		53BA0559FDE6BA999ACD7902 /* Pods_DokushoKirokuAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCDB43B55DE6F7463B2DDBC /* Pods_DokushoKirokuAppTests.framework */; };
 		B19640AD76ABCB3A4AF639ED /* Pods_DokushoKirokuApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E2DD83E4D7DF3524A5143 /* Pods_DokushoKirokuApp.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +72,9 @@
 		18E5759A22C4EBCE00A870ED /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
 		18E5759C22C4EF1400A870ED /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		18E5759D22C4EF1400A870ED /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
+		18E575A022C7AE5F00A870ED /* DailyLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTableViewCell.swift; sourceTree = "<group>"; };
+		18E575A122C7AE5F00A870ED /* DailyLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyLogTableViewCell.xib; sourceTree = "<group>"; };
+		18E575A422C7B12300A870ED /* DailyLogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogData.swift; sourceTree = "<group>"; };
 		31F10571AC425A5FAD89843C /* Pods_DokushoKirokuAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DokushoKirokuAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4618E20D7BF2848CD38DB8A2 /* Pods-DokushoKirokuAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokushoKirokuAppUITests.release.xcconfig"; path = "Target Support Files/Pods-DokushoKirokuAppUITests/Pods-DokushoKirokuAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6DA2CD7043FC5E81AD4562C5 /* Pods-DokushoKirokuApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokushoKirokuApp.debug.xcconfig"; path = "Target Support Files/Pods-DokushoKirokuApp/Pods-DokushoKirokuApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				18E5759A22C4EBCE00A870ED /* BookData.swift */,
 				18E5759C22C4EF1400A870ED /* BookTableViewCell.swift */,
 				18E5759D22C4EF1400A870ED /* BookTableViewCell.xib */,
+				18E575A022C7AE5F00A870ED /* DailyLogTableViewCell.swift */,
+				18E575A122C7AE5F00A870ED /* DailyLogTableViewCell.xib */,
+				18E575A422C7B12300A870ED /* DailyLogData.swift */,
 			);
 			path = DokushoKirokuApp;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 				181DCF0122C23309007A2A22 /* Assets.xcassets in Resources */,
 				181DCEFF22C23307007A2A22 /* Main.storyboard in Resources */,
 				18E5759922C27BB700A870ED /* GoogleService-Info.plist in Resources */,
+				18E575A322C7AE5F00A870ED /* DailyLogTableViewCell.xib in Resources */,
 				18E5759F22C4EF1400A870ED /* BookTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E575A222C7AE5F00A870ED /* DailyLogTableViewCell.swift in Sources */,
 				18E5759722C2660F00A870ED /* CellInputViewController.swift in Sources */,
 				18E5759522C265FD00A870ED /* CellViewController.swift in Sources */,
 				18E5758F22C2650500A870ED /* LoginViewController.swift in Sources */,
@@ -423,6 +434,7 @@
 				181DCEFC22C23307007A2A22 /* ViewController.swift in Sources */,
 				181DCEFA22C23307007A2A22 /* AppDelegate.swift in Sources */,
 				18E5759B22C4EBCE00A870ED /* BookData.swift in Sources */,
+				18E575A522C7B12300A870ED /* DailyLogData.swift in Sources */,
 				18E5759122C265B100A870ED /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
