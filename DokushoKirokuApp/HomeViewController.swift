@@ -102,6 +102,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: "cellSegue", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)-> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let currentUserId = Auth.auth().currentUser?.uid
+            if Auth.auth().currentUser != nil {
+                let bookData = bookArray[indexPath.row]
+                let booksRef = Database.database().reference().child("user/" + currentUserId! + "/book/" + bookData.id!)
+                booksRef.removeValue()
+                
+                let dailyLogsRef = Database.database().reference().child("user/" + currentUserId! + "/dailylog/" + bookData.id!)
+                dailyLogsRef.removeValue()
+                
+                bookArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         

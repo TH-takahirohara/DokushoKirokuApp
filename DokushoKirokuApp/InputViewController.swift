@@ -46,6 +46,16 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 return
             }
             
+            let titleStrNum = title.count
+            let authorStrNum = author.count
+            if titleStrNum > 80 {
+                SVProgressHUD.showError(withStatus: "タイトルは80文字以下にして下さい")
+                return
+            } else if authorStrNum > 20 {
+                SVProgressHUD.showError(withStatus: "著者名は20文字以下にして下さい")
+                return
+            }
+            
             let intTotalPages: Int = Int(totalpages)!
             if intTotalPages == 0 {
                 SVProgressHUD.showError(withStatus: "総ページ数は0より大きい値として下さい")

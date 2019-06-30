@@ -33,7 +33,7 @@ class BookTableViewCell: UITableViewCell {
         
         let totalPages: Double = Double(Int(bookData.totalPages)!)
         let lastPage: Double = Double(Int(bookData.lastPage)!)
-        let rate: Double = (floor(lastPage / totalPages * 100) / 100 * 100)
+        let rate: Double = (floor(lastPage / totalPages * 1000) / 1000 * 100)
         let rateStr: String = String("\(rate)")
         self.progressRateLabel.text = rateStr + "%"
     }

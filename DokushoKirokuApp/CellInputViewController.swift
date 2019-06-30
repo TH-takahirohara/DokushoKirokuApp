@@ -24,6 +24,15 @@ class CellInputViewController: UIViewController {
                 return
             }
             
+            let intLastPage = Int(lastpage)!
+            if intLastPage < Int(bookData.lastPage)! {
+                SVProgressHUD.showError(withStatus: "ページ番号には前回入力時よりも大きい値を入力して下さい")
+                return
+            } else if intLastPage > Int(bookData.totalPages)! {
+                SVProgressHUD.showError(withStatus: "ページ番号には総ページ数以下の値を入力して下さい")
+                return
+            }
+            
             let formatter = DateFormatter()
             formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM", options: 0, locale: Locale(identifier: "ja_JP"))
             let dateString = formatter.string(from: datePicker.date)
