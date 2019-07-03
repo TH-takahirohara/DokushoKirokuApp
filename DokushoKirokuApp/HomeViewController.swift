@@ -27,20 +27,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.register(nib, forCellReuseIdentifier: "Cell")
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 300
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if Auth.auth().currentUser == nil {
-            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-            self.present(loginViewController!, animated: true, completion: nil)
-        }
-        
-        let currentUserId = Auth.auth().currentUser?.uid
         if Auth.auth().currentUser != nil {
+            let currentUserId = Auth.auth().currentUser?.uid
             if self.observing == false {
                 let booksRef = Database.database().reference().child("user/" + currentUserId! + "/book")
                 booksRef.observe(.childAdded, with: {snapshot in
@@ -76,6 +70,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         } else {
             if observing == true {
+                let currentUserId = Auth.auth().currentUser?.uid
                 bookArray = []
                 tableView.reloadData()
                 
@@ -84,6 +79,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
                 observing = false
             }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if Auth.auth().currentUser == nil {
+            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            self.present(loginViewController!, animated: true, completion: nil)
         }
     }
     
@@ -125,8 +129,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         if segue.identifier == "cellSegue" {
             let cellViewController: CellViewController = segue.destination as! CellViewController
             let indexPath = self.tableView.indexPathForSelectedRow
@@ -134,6 +136,61 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
 
+    @IBAction func unwindHandleLogoutButton(_ segue: UIStoryboardSegue) {
+        if Auth.auth().currentUser != nil {
+            try! Auth.auth().signOut()
+            
+            bookArray = []
+            observing = false
+            
+            UIView.animate(
+                withDuration: 0.0,
+                animations: {
+                    self.tableView.reloadData()
+                }, completion: { finished in
+                    if (finished) {
+                        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                        self.present(loginViewController!, animated: true, completion: nil)
+                    }
+                }
+            )
+        }
+    }
+    
+    @IBAction func unwindHandleDeleteAccountButton(_ segue: UIStoryboardSegue) {
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            let currentUserId = Auth.auth().currentUser?.uid
+            
+            user?.delete { error in
+                if let error = error {
+                    print("DEBUG_PRINT: " + error.localizedDescription)
+                    return
+                } else {
+                    print("DEBUG_PRINT: ユーザー削除に成功しました。")
+                }
+            }
+            
+            let userRef = Database.database().reference().child("user/" + currentUserId!)
+            userRef.removeValue()
+            
+            bookArray = []
+            observing = false
+            
+            UIView.animate(
+                withDuration: 0.0,
+                animations: {
+                    self.tableView.reloadData()
+                }, completion: { finished in
+                    if (finished) {
+                        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                        self.present(loginViewController!, animated: true, completion: nil)
+                    }
+                }
+            )
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

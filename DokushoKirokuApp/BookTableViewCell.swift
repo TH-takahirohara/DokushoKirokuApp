@@ -31,11 +31,18 @@ class BookTableViewCell: UITableViewCell {
         self.titleLabel.text = bookData.title
         self.authorLabel.text = bookData.author
         
-        let totalPages: Double = Double(Int(bookData.totalPages)!)
-        let lastPage: Double = Double(Int(bookData.lastPage)!)
-        let rate: Double = (floor(lastPage / totalPages * 1000) / 1000 * 100)
-        let rateStr: String = String("\(rate)")
-        self.progressRateLabel.text = rateStr + "%"
+        let totalPages: NSDecimalNumber = NSDecimalNumber(string: bookData.totalPages)
+        let lastPage: NSDecimalNumber = NSDecimalNumber(string: bookData.lastPage)
+        let behaviors: NSDecimalNumberHandler = NSDecimalNumberHandler(
+            roundingMode: .down,
+            scale: 1,
+            raiseOnExactness: false,
+            raiseOnOverflow: false,
+            raiseOnUnderflow: false,
+            raiseOnDivideByZero: false)
+        let rate: NSDecimalNumber = lastPage.dividing(by: totalPages).multiplying(by: NSDecimalNumber(string: "100"))
+        let roundingRate = rate.rounding(accordingToBehavior: behaviors)
+        self.progressRateLabel.text = "\(roundingRate)" + "%"
     }
     
 }

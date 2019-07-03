@@ -27,6 +27,7 @@
 		18E575A222C7AE5F00A870ED /* DailyLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E575A022C7AE5F00A870ED /* DailyLogTableViewCell.swift */; };
 		18E575A322C7AE5F00A870ED /* DailyLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E575A122C7AE5F00A870ED /* DailyLogTableViewCell.xib */; };
 		18E575A522C7B12300A870ED /* DailyLogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E575A422C7B12300A870ED /* DailyLogData.swift */; };
+		18E575A722C9106000A870ED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E575A622C9106000A870ED /* MenuViewController.swift */; };
 		53BA0559FDE6BA999ACD7902 /* Pods_DokushoKirokuAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCDB43B55DE6F7463B2DDBC /* Pods_DokushoKirokuAppTests.framework */; };
 		B19640AD76ABCB3A4AF639ED /* Pods_DokushoKirokuApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E2DD83E4D7DF3524A5143 /* Pods_DokushoKirokuApp.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		18E575A022C7AE5F00A870ED /* DailyLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTableViewCell.swift; sourceTree = "<group>"; };
 		18E575A122C7AE5F00A870ED /* DailyLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyLogTableViewCell.xib; sourceTree = "<group>"; };
 		18E575A422C7B12300A870ED /* DailyLogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogData.swift; sourceTree = "<group>"; };
+		18E575A622C9106000A870ED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		31F10571AC425A5FAD89843C /* Pods_DokushoKirokuAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DokushoKirokuAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4618E20D7BF2848CD38DB8A2 /* Pods-DokushoKirokuAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokushoKirokuAppUITests.release.xcconfig"; path = "Target Support Files/Pods-DokushoKirokuAppUITests/Pods-DokushoKirokuAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6DA2CD7043FC5E81AD4562C5 /* Pods-DokushoKirokuApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokushoKirokuApp.debug.xcconfig"; path = "Target Support Files/Pods-DokushoKirokuApp/Pods-DokushoKirokuApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				18E575A022C7AE5F00A870ED /* DailyLogTableViewCell.swift */,
 				18E575A122C7AE5F00A870ED /* DailyLogTableViewCell.xib */,
 				18E575A422C7B12300A870ED /* DailyLogData.swift */,
+				18E575A622C9106000A870ED /* MenuViewController.swift */,
 			);
 			path = DokushoKirokuApp;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				18E5759322C265E200A870ED /* InputViewController.swift in Sources */,
 				18E5759E22C4EF1400A870ED /* BookTableViewCell.swift in Sources */,
 				181DCEFC22C23307007A2A22 /* ViewController.swift in Sources */,
+				18E575A722C9106000A870ED /* MenuViewController.swift in Sources */,
 				181DCEFA22C23307007A2A22 /* AppDelegate.swift in Sources */,
 				18E5759B22C4EBCE00A870ED /* BookData.swift in Sources */,
 				18E575A522C7B12300A870ED /* DailyLogData.swift in Sources */,
