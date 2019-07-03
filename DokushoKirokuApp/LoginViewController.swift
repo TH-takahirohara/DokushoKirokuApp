@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController , UITextFieldDelegate{
 
     @IBOutlet weak var mailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -63,14 +63,25 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func handleForgotPasswordButton(_ sender: Any) {
+        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResetPassword")
+        self.present(loginViewController!, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        mailAddressTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     /*

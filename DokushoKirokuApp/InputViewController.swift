@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class InputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class InputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -77,6 +77,9 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titleTextField.delegate = self
+        authorNameTextField.delegate = self
+        
         let initialImage = UIImage(named: "booksample.png")
         bookImageView.image = initialImage
     }
@@ -85,6 +88,10 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.view.endEditing(true)
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     /*
     // MARK: - Navigation
 

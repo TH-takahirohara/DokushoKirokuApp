@@ -77,6 +77,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fy8-Xk-fpC">
+                                <rect key="frame" x="45" y="370" width="230" height="30"/>
+                                <state key="normal" title="パスワードを忘れた場合はこちら"/>
+                                <connections>
+                                    <action selector="handleForgotPasswordButton:" destination="BXw-Ag-s3r" eventType="touchUpInside" id="Fqt-7m-DPp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -86,8 +93,10 @@
                             <constraint firstItem="b3s-oZ-twP" firstAttribute="top" secondItem="gDf-Ki-kDB" secondAttribute="bottom" constant="10" id="BNZ-hJ-HH0"/>
                             <constraint firstItem="gDf-Ki-kDB" firstAttribute="centerX" secondItem="GDL-yt-mzh" secondAttribute="centerX" id="BcN-Tk-P78"/>
                             <constraint firstItem="DGA-Vt-h0n" firstAttribute="top" secondItem="g3h-TU-zd3" secondAttribute="top" constant="60" id="I9N-8q-Gze"/>
+                            <constraint firstItem="Fy8-Xk-fpC" firstAttribute="top" secondItem="GuU-VH-j5f" secondAttribute="bottom" constant="30" id="Ou4-yc-GNm"/>
                             <constraint firstItem="b3s-oZ-twP" firstAttribute="centerX" secondItem="GDL-yt-mzh" secondAttribute="centerX" id="WHo-So-K8l"/>
                             <constraint firstItem="5Ra-jQ-xre" firstAttribute="centerX" secondItem="GDL-yt-mzh" secondAttribute="centerX" id="bz8-vH-4YG"/>
+                            <constraint firstItem="Fy8-Xk-fpC" firstAttribute="centerX" secondItem="GDL-yt-mzh" secondAttribute="centerX" id="nq6-Ef-XnP"/>
                             <constraint firstItem="5Ra-jQ-xre" firstAttribute="top" secondItem="b3s-oZ-twP" secondAttribute="bottom" constant="10" id="sSW-rl-JJl"/>
                             <constraint firstItem="gDf-Ki-kDB" firstAttribute="top" secondItem="g3h-TU-zd3" secondAttribute="top" constant="150" id="tiO-n4-5Jd"/>
                         </constraints>
@@ -101,6 +110,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaR-UY-1vE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900" y="151"/>
+        </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="iNY-le-305">
+            <objects>
+                <viewController storyboardIdentifier="ResetPassword" id="WlV-VJ-xaS" customClass="ResetPasswordViewController" customModule="DokushoKirokuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4yD-un-tFh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mX0-gV-Vc3">
+                                <rect key="frame" x="10" y="170" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="cmJ-vK-B6u"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1L-kX-x9t">
+                                <rect key="frame" x="10" y="210" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="1L6-H6-V4a"/>
+                                </constraints>
+                                <state key="normal" title="メール送信" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleSendButton:" destination="WlV-VJ-xaS" eventType="touchUpInside" id="Opn-aX-lDj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3y-Vx-PYd">
+                                <rect key="frame" x="144.5" y="280" width="31" height="30"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backButton:" destination="WlV-VJ-xaS" eventType="touchUpInside" id="Z67-bj-nn8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード再設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssc-rp-IyN">
+                                <rect key="frame" x="70.5" y="80" width="179" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O1L-kX-x9t" firstAttribute="top" secondItem="mX0-gV-Vc3" secondAttribute="bottom" constant="10" id="I59-k8-tJW"/>
+                            <constraint firstItem="ssc-rp-IyN" firstAttribute="centerX" secondItem="4yD-un-tFh" secondAttribute="centerX" id="LcD-1v-yaO"/>
+                            <constraint firstItem="mX0-gV-Vc3" firstAttribute="centerX" secondItem="4yD-un-tFh" secondAttribute="centerX" id="MPe-Zn-dgy"/>
+                            <constraint firstItem="R3y-Vx-PYd" firstAttribute="centerX" secondItem="4yD-un-tFh" secondAttribute="centerX" id="aoe-eK-E3q"/>
+                            <constraint firstItem="O1L-kX-x9t" firstAttribute="centerX" secondItem="4yD-un-tFh" secondAttribute="centerX" id="c1d-e7-T4j"/>
+                            <constraint firstItem="ssc-rp-IyN" firstAttribute="top" secondItem="OnA-1l-MNT" secondAttribute="top" constant="60" id="cOg-ef-hq4"/>
+                            <constraint firstItem="R3y-Vx-PYd" firstAttribute="top" secondItem="O1L-kX-x9t" secondAttribute="bottom" constant="30" id="dXW-4J-JDQ"/>
+                            <constraint firstItem="mX0-gV-Vc3" firstAttribute="top" secondItem="OnA-1l-MNT" secondAttribute="top" constant="150" id="mjB-wa-N4e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OnA-1l-MNT"/>
+                    </view>
+                    <connections>
+                        <outlet property="mailAddressTextField" destination="mX0-gV-Vc3" id="bTC-Fm-2lf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZx-Yn-KXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2888" y="150"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="GAh-PF-wii">
