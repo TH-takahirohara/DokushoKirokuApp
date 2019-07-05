@@ -158,36 +158,53 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func unwindHandleDeleteAccountButton(_ segue: UIStoryboardSegue) {
-        if Auth.auth().currentUser != nil {
-            let user = Auth.auth().currentUser
-            let currentUserId = Auth.auth().currentUser?.uid
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+            let alert: UIAlertController = UIAlertController(title: "アカウントを削除しますか?", message: "アカウントを削除すると関連するデータも削除されます。", preferredStyle: .alert)
             
-            user?.delete { error in
-                if let error = error {
-                    print("DEBUG_PRINT: " + error.localizedDescription)
-                    return
-                } else {
-                    print("DEBUG_PRINT: ユーザー削除に成功しました。")
-                }
-            }
-            
-            let userRef = Database.database().reference().child("user/" + currentUserId!)
-            userRef.removeValue()
-            
-            bookArray = []
-            observing = false
-            
-            UIView.animate(
-                withDuration: 0.0,
-                animations: {
-                    self.tableView.reloadData()
-                }, completion: { finished in
-                    if (finished) {
-                        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                        self.present(loginViewController!, animated: true, completion: nil)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {
+                (action: UIAlertAction!) -> Void in
+                if Auth.auth().currentUser != nil {
+                    let user = Auth.auth().currentUser
+                    let currentUserId = Auth.auth().currentUser?.uid
+                    
+                    user?.delete { error in
+                        if let error = error {
+                            print("DEBUG_PRINT: " + error.localizedDescription)
+                            return
+                        } else {
+                            print("DEBUG_PRINT: ユーザー削除に成功しました。")
+                        }
                     }
+                    
+                    let userRef = Database.database().reference().child("user/" + currentUserId!)
+                    userRef.removeValue()
+                    
+                    self.bookArray = []
+                    self.observing = false
+                    
+                    UIView.animate(
+                        withDuration: 0.0,
+                        animations: {
+                            self.tableView.reloadData()
+                    }, completion: { finished in
+                        if (finished) {
+                            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                            self.present(loginViewController!, animated: true, completion: nil)
+                        }
+                    }
+                    )
                 }
-            )
+            })
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: {
+                (action: UIAlertAction!) -> Void in
+                
+            })
+            
+            alert.addAction(cancelAction)
+            alert.addAction(defaultAction)
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

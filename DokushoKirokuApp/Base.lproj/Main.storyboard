@@ -238,7 +238,7 @@
                                         <rect key="frame" x="10" y="190" width="180" height="30"/>
                                         <state key="normal" title="アカウント削除"/>
                                         <connections>
-                                            <segue destination="TYd-ye-Wt9" kind="unwind" unwindAction="unwindHandleDeleteAccountButton:" id="lGb-d2-iv3"/>
+                                            <segue destination="TYd-ye-Wt9" kind="unwind" unwindAction="unwindHandleDeleteAccountButton:" id="XyL-zo-fZg"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -51,8 +51,8 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
             if titleStrNum > 80 {
                 SVProgressHUD.showError(withStatus: "タイトルは80文字以下にして下さい")
                 return
-            } else if authorStrNum > 20 {
-                SVProgressHUD.showError(withStatus: "著者名は20文字以下にして下さい")
+            } else if authorStrNum > 60 {
+                SVProgressHUD.showError(withStatus: "著者名は60文字以下にして下さい")
                 return
             }
             
