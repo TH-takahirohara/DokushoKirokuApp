@@ -56,9 +56,13 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 return
             }
             
-            let intTotalPages: Int = Int(totalpages)!
-            if intTotalPages == 0 {
-                SVProgressHUD.showError(withStatus: "総ページ数は0より大きい値として下さい")
+            if let intTotalPages = Int(totalpages) {
+                if intTotalPages <= 0  {
+                    SVProgressHUD.showError(withStatus: "総ページ数には0よりも大きい値を入力して下さい")
+                    return
+                }
+            } else {
+                SVProgressHUD.showError(withStatus: "総ページ数には正の整数を入力して下さい")
                 return
             }
             

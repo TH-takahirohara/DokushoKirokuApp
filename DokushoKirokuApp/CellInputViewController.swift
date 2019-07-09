@@ -24,12 +24,16 @@ class CellInputViewController: UIViewController {
                 return
             }
             
-            let intLastPage = Int(lastpage)!
-            if intLastPage < Int(bookData.lastPage)! {
-                SVProgressHUD.showError(withStatus: "ページ番号には前回入力時よりも大きい値を入力して下さい")
-                return
-            } else if intLastPage > Int(bookData.totalPages)! {
-                SVProgressHUD.showError(withStatus: "ページ番号には総ページ数以下の値を入力して下さい")
+            if let intLastPage = Int(lastpage) {
+                if intLastPage < Int(bookData.lastPage)! {
+                    SVProgressHUD.showError(withStatus: "ページ番号には前回入力時よりも大きい値を入力して下さい")
+                    return
+                } else if intLastPage > Int(bookData.totalPages)! {
+                    SVProgressHUD.showError(withStatus: "ページ番号には総ページ数以下の値を入力して下さい")
+                    return
+                }
+            } else {
+                SVProgressHUD.showError(withStatus: "ページ番号には正の整数を入力して下さい")
                 return
             }
             
