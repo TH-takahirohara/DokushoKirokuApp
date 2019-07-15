@@ -620,13 +620,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CM295DQ64D;
+				DEVELOPMENT_TEAM = 925577ABC2;
 				INFOPLIST_FILE = DokushoKirokuApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstaka.takahiro.hara.DokushoKirokuApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appstaka.DokushoKirokuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -639,13 +639,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CM295DQ64D;
+				DEVELOPMENT_TEAM = 925577ABC2;
 				INFOPLIST_FILE = DokushoKirokuApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstaka.takahiro.hara.DokushoKirokuApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appstaka.DokushoKirokuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
